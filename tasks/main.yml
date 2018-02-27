@@ -3,12 +3,12 @@
 - name: Install add-apt-repostory
   become: yes
   apt: name=software-properties-common state=latest
-  when: ansible_os_family == 'Debian'
+  when: ansible_distribution == 'Ubuntu'
 
 - name: Add Ansible PPA
   become: yes
   apt_repository: repo='ppa:ansible/ansible'
-  when: ansible_os_family == 'Debian'
+  when: ansible_distribution == 'Ubuntu'
 
 - name: Install newest ansible (Debian)
   become: yes
